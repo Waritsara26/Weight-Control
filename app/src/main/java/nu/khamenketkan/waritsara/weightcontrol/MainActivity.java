@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         //ไปที่ foodTABLE , exerciseTABLE
         addFirstData();
 
-        //CheckUserTABLE
+        //CheckUserTABLE คือการตรวจสอบว่า userTABLE มีการบันทึกค่าหรือยัง
         checkUserTABLE();
 
         //Check Persen
@@ -79,15 +79,20 @@ public class MainActivity extends AppCompatActivity {
 
     } // main method
 
+
+    //คือการตรวจสอบว่า user กินอาหารเกินความจำเป็นหรือไม่
+    // โดยดูจากค่าผลรวม calories และ ผลรวมค่าการออกกำลังกาย Burn ลบกันว่าเกิน 90% ของ bmr ของ user หรือเปล่า
     private void checkPersenBMR() {
 
+        // การคำนวณ bmr ที่เป็นเปอเซ็นต์ ในขณะนั้นและนำไปแสดง
         double douPersen = ((douTotalCalories - douTotalBurn)) * 100 / myBMRADouble;
         myBMRTextView.setText(String.format("%.2f", douPersen) + " %");
 
+        // รูปภาพที่จะมาประกอบแสดงตาม BMR  เปอเซ็นต์ที่คำนวณได้
         MyData myData = new MyData();
         int[] ints = myData.iconInts;
 
-        //Show Image
+        //Show Image การเปรียบเทียบค่า BMR เปอร์เซ็นที่ได้กับภาพที่จะแสดง
         if (douPersen < 20.0) {
             imageView.setImageResource(ints[0]);
         } else if (douPersen < 40) {
@@ -110,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     }   // check
 
+        //คือการแจ้งเตือนด้วยเสียง
     private void alertOver() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -126,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
 
-        //Sound Effect
+        //Sound Effect นี่คือเสียงที่ใช้ในการแจ้งเตือน
         MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.intro_start_horse);
         mediaPlayer.start();
 
@@ -148,9 +154,11 @@ public class MainActivity extends AppCompatActivity {
 
                 String[] burnStrings = new String[cursor.getCount()];
 
+                // นี่คือการลูปวนตามจำนวนของ burn
                 for (int i = 0; i < cursor.getCount(); i += 1) {
 
                     burnStrings[i] = cursor.getString(cursor.getColumnIndex(MyManage.column_burn));
+                    //นี่คือการบวกรวมค่าที่ burn ในวันนั้นทั้งหมด
                     douTotalBurn = douTotalBurn + Double.parseDouble(burnStrings[i]);
 
                     cursor.moveToNext();
@@ -252,14 +260,21 @@ public class MainActivity extends AppCompatActivity {
         // string ดึง ชื่อ bmr ขึ้นมาโชวจากในฐานข้อมูล
     } // Show name rawquery การ query data การดึงข้อมูล select คือคำสั่งดึงข้อมูล cursor ดึงข้อมูลเข้าไปทำงานในแรม
 
+
+
+    //checkUserTABLE ทำหน้าที่ตรวจสอบ userTABLE ว่ามีข้อมูลของ user หรือยัง
+    // ถ้ายังให้ Intent ไปที่ SignupActivity เพื่อขอข้อมูล
     private void checkUserTABLE() {
 
+
+        //สร้างการเชื่อมต่อ SQLite (SQLiteDatabase) เพื่อนำไปสร้าง cursor (การประมวลผลในแรม)
         try {
 
             SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
                     MODE_PRIVATE, null);
             Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM userTABLE", null);
 
+            // ถ้าไม่มีข้อมูลเลย cursor จะมีค่าเท่ากับความว่างเปล่า (null)
             if (cursor != null) {
                 Log.d("6octV1", "cursor not null" + cursor.getCount());
             } else {
@@ -270,6 +285,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (cursor.getCount() == 0) {   //userTABLE ไม่มีข้อมูล รอการบันทึก
                 Log.d("6octV1", "Intent OK");
+                //เคลื่อนย้ายการทำงานไป signupActivity
                 startActivity(new Intent(MainActivity.this, SignUpActivity.class));
             } else {
 

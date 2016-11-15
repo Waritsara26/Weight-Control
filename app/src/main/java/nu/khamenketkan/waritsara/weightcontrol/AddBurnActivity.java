@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+//เพิ่มกิจกรรมการออกกำลังกายใน ListView ที่แสดงการ Burn
 public class AddBurnActivity extends AppCompatActivity {
 
     //Explicit
@@ -22,11 +23,12 @@ public class AddBurnActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_burn);
 
+        //เป็นการดึงเวลาของเครื่องมาใช้งาน
         dateString = getIntent().getStringExtra("Date");
         TextView textView = (TextView) findViewById(R.id.txtBurnAdd);
         textView.setText("Date = " + dateString);
 
-        //Create ListView
+        //Create ListView คือการสร้าง listview สำหรับแสดงรายชื่อของกิจกรรม Burn
         SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.database_name,
                 MODE_PRIVATE, null);
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM exerciseTABLE", null);
@@ -57,7 +59,8 @@ public class AddBurnActivity extends AppCompatActivity {
     } //Main Method
 
 
-
+    //chooseAmount คือการคำนวณ จำนวนการ Burn เช่น วิ่ง 1hr. Burn 1200
+    // แตถ้าวิ่งครึ่งชั่วโมง burn 600 (1200*0.5)
     private void chooseAmount(final String exerciseString, final String burnString) {
 
         CharSequence[] charSequences = new CharSequence[]{"30 นาที", "60 นาที","90 นาที","120 นาที","150 นาที","180 นาที"};
@@ -66,6 +69,7 @@ public class AddBurnActivity extends AppCompatActivity {
         builder.setIcon(R.drawable.doremon48);
         builder.setTitle(exerciseString);
         builder.setSingleChoiceItems(charSequences, -1, new DialogInterface.OnClickListener() {
+            // คือการเลือกแล้วเอาเลย
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
