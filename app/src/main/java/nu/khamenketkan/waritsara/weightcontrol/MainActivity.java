@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Bind Widget ให้ทำการค้นหารายชื่อจาก table ใน file ที่ชื่อว่า r.จาวา
+        //Bind Widget มันคือกระบวนการผูกความสัมพันธ์ระหว่างตัวแปรที่อยู่ใน class
+        // และ widget ที่อยู่ใน layout
         dateTextview = (TextView) findViewById(R.id.textView8);
         nameTextView = (TextView) findViewById(R.id.textView9);
         bmrTextView = (TextView) findViewById(R.id.textView10);
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button4);
 
 
-        //Button controller
+        //Button controller คือการทำให้ปุ่มสามารถคลิ๊ก
+        // และเก็บเหตุการณ์ของการคลิ๊กได้ จากตัวอย่างเมื่อคลิ๊กจะย้ายการทำงานไปที่ EditActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,13 +60,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        // การสร้าง object ของ class Mymanage
         myManage = new MyManage(this);
 
         //Test Add Value
         // testAddValue();
 
-        //Add First Data
+        //Add First Data คือการเพิ่มรายการอาหาร/กิจกรรมออกกำลังกาย
+        //ไปที่ foodTABLE , exerciseTABLE
         addFirstData();
 
         //CheckUserTABLE
@@ -289,7 +292,9 @@ public class MainActivity extends AppCompatActivity {
 
     } //checkUser
 
-    //จะทำการลบ foodTABLE  และ exerciseTABLE ก่อน แล้วค่อย Add Value ใหม่ทุกๆ ครั้งที่เปิด
+    //จะทำการลบ foodTABLE  และ exerciseTABLE ก่อน
+    // แล้วค่อย Add Value ใหม่ทุกๆ ครั้งที่เปิด เพื่อให้สามารถเพิ่มรายการของอาหาร
+    // หรือกิจกรรมที่ทำได้ เพิ่มเวลาจะเพิ่มรายการอาหารและกิจกรรมใหม่
     private void addFirstData() {
 
         //Delete All Data
@@ -319,8 +324,10 @@ public class MainActivity extends AppCompatActivity {
             myManage.addExercise(exerciseStrings[i], burnStrings[i]);
         }   // for
 
-    } //addFirstData
+    } //add firstdata
 
+    //เมธอดที่ทดสอบระบบการเพิ่ม value ไปที่ Table ของ
+    // SQLite แต่พอเราทำการทดสอบสำเร็จก็จะไม่ได้ใช้แล้ว
     private void testAddValue() {
 
         myManage.addFood("food", "unit", "calories");
