@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Windows 8.1 on 16/7/2559.
  */
+
+//นี่คือคลาสที่ทำหน้าที่เชื่อมต่อ SQLite
 public class MyOpenHelper extends SQLiteOpenHelper{
 
     //Explicit

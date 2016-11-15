@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by Windows 8.1 on 16/7/2559.
  */
+
+//เพิ่มค่าไปที่ SQLite
 public class MyManage {
     //Explicit
     private MyOpenHelper myOpenHelper;
