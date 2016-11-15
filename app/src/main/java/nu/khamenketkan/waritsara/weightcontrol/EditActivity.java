@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+// คลาสที่ทำหน้าที่ในการแก้ไข user
 public class EditActivity extends AppCompatActivity {
 
     //Explicit
@@ -57,6 +58,7 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //จะเอาค่า Value จาก Edit Text ไปไว้ที่ String
                 nameString = nameEditText.getText().toString().trim();
                 surnameString = surEditText.getText().toString().trim();
                 weightString = weihtEditText.getText().toString().trim();
@@ -64,10 +66,12 @@ public class EditActivity extends AppCompatActivity {
                 ageString = ageEditText.getText().toString().trim();
                 sexString = sexEditText.getText().toString().trim();
 
+                //การกำหนด value to index โดย 0 หมายถึงผู้ชาย , 1 หมายถึงผู้หญิง
                 if (sexString.equals(sexStrings[1])) {
                     index = 1;
                 } //if
 
+                    //คือการคำนวณค่า BMR ใหม่
                 myCalculateBmr = new MyCalculateBmr(EditActivity.this,
                         index,
                         Double.parseDouble(weightString),
@@ -75,12 +79,14 @@ public class EditActivity extends AppCompatActivity {
                         Double.parseDouble(ageString));
                 String strBMR = myCalculateBmr.myBMR();
 
-                //Delete All SQLite ลบข้อมูลเก่าทั้งหมด
+                //Delete All SQLite ลบข้อมูลเก่าทั้งหมดออกไป
                 sqLiteDatabase.delete(MyManage.user_table, null, null);
 
+                //การอัพเดตค่าใหม่ to SQLite
                 MyManage myManage = new MyManage(EditActivity.this);
                 myManage.addUser(nameString, surnameString, weightString, heightString,
                         sexString, ageString, strBMR);
+                //การแจ้งเตือนขึ้นมา 4 วินาทีว่าสำเร็จ
                 Toast.makeText(EditActivity.this, "แก้ไขเรียบร้อย", Toast.LENGTH_SHORT).show();
                 finish();
 

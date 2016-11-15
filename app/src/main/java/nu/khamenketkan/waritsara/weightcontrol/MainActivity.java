@@ -177,13 +177,16 @@ public class MainActivity extends AppCompatActivity {
 
     }    //showBurn
 
+    //คือการ restart Activity
     @Override
     protected void onRestart() {
         super.onRestart();
-        showCalories();
-        showBurn();
-        checkPersenBMR();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
+
+
 
     public void clickBurn(View view) {
         Intent intent = new Intent(MainActivity.this, BurnListView.class);
