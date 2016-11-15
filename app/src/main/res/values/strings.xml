@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Weight Control</string>
+
+    <string name="signup">สมัครสมาชิก</string>
+    <string name="edit">แก้ไขข้อมูล</string>
+
+</resources>
