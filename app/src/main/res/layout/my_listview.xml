@@ -13,14 +13,30 @@
         android:layout_margin="10dp"
         android:textColor="@color/text" />
 
-    <TextView
+    <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView17"
-        android:textSize="@dimen/h2"
-        android:layout_weight="1"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:textColor="@color/text" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView17"
+            android:textSize="@dimen/h2"
+
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="@color/text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/text"
+            android:text="kcal"
+            android:id="@+id/textView19"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
 </LinearLayout>

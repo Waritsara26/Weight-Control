@@ -39,8 +39,11 @@ public class CaloriesListView extends AppCompatActivity {
 
     } //Main Method
 
+    // Click QRcode
     public void clickQRcode(View view) {
 
+        //เมื่อมีการเรียกใช้การอ่าน QRcode ให้เรียกใช้ libary ที่อยู่ในแอพของ zxing client
+        // แล้วเอาผลลัพธ์ที่อ่านได้มาประมวลในแอพของเรา โดยการผ่าน intent
         try {
 
             Intent intent = new Intent("com.google.zxing.client.android.SCAN");
@@ -48,12 +51,15 @@ public class CaloriesListView extends AppCompatActivity {
             startActivityForResult(intent, 0);
 
         } catch (Exception e) {
+            //แต่ถ้าในมือถือไม่มี zxing client จะขึ้นข้อความขอร้องให้ติดตั้ง Barcode scanner ก่อน
             Toast.makeText(this, "Please Install Barcode Scanner",
                     Toast.LENGTH_SHORT).show();
         }
 
     }   // clickQRcode
 
+    //นี่คือ method ที่จะทำงานหลังจาก zxing client ทำงานเสร็จแล้ว
+    // จะส่งสิ่งที่อ่านได้มาเป็น Data
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -63,9 +69,10 @@ public class CaloriesListView extends AppCompatActivity {
 
             String strQRcode = data.getStringExtra("SCAN_RESULT");
             Log.d("1novV1", "QR code ==> " + strQRcode);
+            //คือการเอา String ที่อ่านได้จาก QRcode มาทำการแยกโดยใช้เครื่องหมาย / เป็นตัวแยก
             String[] QRStrings = strQRcode.split("/");
-            Log.d("1novV1", "array0 ==> " + QRStrings[0]);
-            Log.d("1novV1", "array1 ==> " + QRStrings[1]);
+            Log.d("1novV1", "array0 ==> " + QRStrings[0]); //ชื่อขนม
+            Log.d("1novV1", "array1 ==> " + QRStrings[1]); //ค่าตัวแคลอรี่
 
             MyManage myManage = new MyManage(this);
             myManage.addCalories(dateString, QRStrings[0], QRStrings[1]);
