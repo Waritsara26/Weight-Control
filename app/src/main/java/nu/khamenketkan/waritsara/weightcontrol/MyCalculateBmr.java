@@ -6,6 +6,16 @@ import android.content.Context;
  * Created by masterUNG on 11/15/2016 AD.
  */
 
+//คำนวณค่าของ BMR จาก weight,height,age,sex
+//สูตรคำนวณพลังงาน BMR
+//
+//        BMR สำหรับผู้ชาย = 66 + (13.7 x น้ำหนักตัว (กิโลกรัม))+(5 x ส่วนสูง (เซนติเมตร))-(6.8 x อายุ)
+//
+//        BMR สำหรับผู้หญิง = 665 + (9.6 x น้ำหนักตัว (กิโลกรัม))+(1.8 x ส่วนสูง (เซนติเมตร))-(4.7 x อายุ)
+//
+//        ยกตัวอย่าง
+//
+//        สมมติว่า A เป็นผู้หญิง อายุ 30 ปี ส่วนสูง 165 ซม. น้ำหนัก 60 กก. BMR จะเท่ากับ 665 +(9.6 x 60)+(1.8 x 165)-(4.7 x 30) = 1,397 กิโลแคลอรี
 public class MyCalculateBmr {
 
     //Explicit
@@ -32,7 +42,7 @@ public class MyCalculateBmr {
         double[] femaleFactorDoubles = new double[]{665, 9.6, 1.8, 4.7};
 
         switch (sexAnInt) {
-            case 0:
+            case 0: //Male
 
                 BMR = maleFactorDoubles[0]
                         + (maleFactorDoubles[1] * weightADouble) +
@@ -40,7 +50,7 @@ public class MyCalculateBmr {
                         (maleFactorDoubles[3] * ageADouble);
 
                 break;
-            case 1:
+            case 1: //Female
 
                 BMR = femaleFactorDoubles[0]
                         + (femaleFactorDoubles[1] * weightADouble) +

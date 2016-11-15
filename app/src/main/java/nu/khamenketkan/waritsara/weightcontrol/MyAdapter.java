@@ -10,6 +10,8 @@ import android.widget.TextView;
 /**
  * Created by Windows 8.1 on 17/7/2559.
  */
+
+//loopวนนำค่าของ String ไปแสดงผลบน listview
 public class MyAdapter extends BaseAdapter{
 
     //Explicit
