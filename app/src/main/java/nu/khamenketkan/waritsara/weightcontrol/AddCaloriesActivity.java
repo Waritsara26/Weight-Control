@@ -54,7 +54,7 @@ public class AddCaloriesActivity extends AppCompatActivity {
             foodStrings[i] = cursor.getString(cursor.getColumnIndex(MyManage.column_food));
             calStrings[i] = cursor.getString(cursor.getColumnIndex(MyManage.column_calories));
             unitStrings[i] = cursor.getString(cursor.getColumnIndex(MyManage.column_unit));
-            valueStrings[i] = calStrings[i] + " Kcal/" + unitStrings[i];
+            valueStrings[i] = calStrings[i];
 
             cursor.moveToNext();
         } // for
