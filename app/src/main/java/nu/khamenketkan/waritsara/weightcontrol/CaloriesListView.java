@@ -123,6 +123,8 @@ public class CaloriesListView extends AppCompatActivity {
     }
 
     public void clickBackCalories(View view) {
+        Intent intent = new Intent(CaloriesListView.this, MainActivity.class);
+        startActivity(intent);
         finish();
         //คำสั่งปุ่ม back
     }

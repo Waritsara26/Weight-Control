@@ -70,6 +70,8 @@ public class BurnListView extends AppCompatActivity {
     }
     //คลิ๊กให้กลับไปที่เก่า
     public void clickBackBurn(View view) {
+        Intent intent = new Intent(BurnListView.this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 

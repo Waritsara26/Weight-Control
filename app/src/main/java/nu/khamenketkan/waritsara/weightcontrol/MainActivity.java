@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             douTotalBurn = 0;
 
             if (cursor.getCount() == 0) {
-                burnTextView.setText("Burn ==> " + "?");
+                burnTextView.setText("Burn  = " + "?");
             } else {
 
                 String[] burnStrings = new String[cursor.getCount()];
@@ -166,12 +166,12 @@ public class MainActivity extends AppCompatActivity {
 
             }   // if
             cursor.close();
-            burnTextView.setText("Burn ==> " + Double.toString(douTotalBurn));
+            burnTextView.setText("Burn         = " + Double.toString(douTotalBurn));
 
 
         } catch (Exception e) {
-            Log.d("WeightV1", "e burn ==> " + e.toString());
-            burnTextView.setText("Burn ==> " + "?");
+            Log.d("WeightV1", "e burn   = " + e.toString());
+            burnTextView.setText("Burn  = " + "?");
         }
 
 
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             douTotalCalories = 0;
 
             if (cursor.getCount() == 0) {
-                caloriesTextView.setText("Calories ==> " + "?");
+                caloriesTextView.setText("Calories  = " + "?");
             } else {
 
                 String[] caloriesStrings = new String[cursor.getCount()];
@@ -227,12 +227,12 @@ public class MainActivity extends AppCompatActivity {
 
             }   // if
             cursor.close();
-            caloriesTextView.setText("Calories ==> " + Double.toString(douTotalCalories));
+            caloriesTextView.setText("Calories   = " + Double.toString(douTotalCalories));
 
 
         } catch (Exception e) {
-            Log.d("WeightV1", "e showCalories ==> " + e.toString());
-            caloriesTextView.setText("Calories ==> " + "?");
+            Log.d("WeightV1", "e showCalories   = " + e.toString());
+            caloriesTextView.setText("Calories  =" + "?");
         }
 
     }   // showCalories
@@ -255,8 +255,8 @@ public class MainActivity extends AppCompatActivity {
         String strBMR = cursor.getString(cursor.getColumnIndex(MyManage.column_BMR));
         String strMyBMR = String.format("%.2f", Double.parseDouble(strBMR));
         myBMRADouble = Double.parseDouble(strMyBMR);
-        nameTextView.setText(strName + " " + strSurname);
-        bmrTextView.setText("BMR = " + strMyBMR);
+        nameTextView.setText("NAME      = " + strName + " " + strSurname);
+        bmrTextView.setText("BMR         = " + strMyBMR);
         cursor.close();
         //  cursor.close คืนหน่วยความจำให้กับมือถือ
         // %.2f คือจะเอาจุดทศนิยมมาโชแค่ 2 ตัว

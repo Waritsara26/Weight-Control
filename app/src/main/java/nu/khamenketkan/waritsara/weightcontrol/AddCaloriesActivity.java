@@ -2,6 +2,7 @@ package nu.khamenketkan.waritsara.weightcontrol;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.content.PermissionChecker;
@@ -96,11 +97,24 @@ public class AddCaloriesActivity extends AppCompatActivity {
                 //คำสั่งพอเลือก popup เสดแล้วมันจะหายไป
             }// onClick
         });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
         builder.show();
 
         // คำสั่งทำ popup
 
     } //chooseAmount
+    public void Backfood(View view) {
+        Intent intent = new Intent(AddCaloriesActivity.this, CaloriesListView.class);
+        intent.putExtra("Date", dateString);
+        startActivity(intent);
+        finish();
+    }
 
 
 } //Main Class

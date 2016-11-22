@@ -23,8 +23,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listView2"
+        android:background="#e1ffffff"
         android:layout_below="@+id/textView15"
-        android:layout_marginTop="15dp"
-        android:background="#e1ffffff" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="85dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:text="BACK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button10"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="Backfood" />
 
 </RelativeLayout>
