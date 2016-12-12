@@ -19,15 +19,6 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/text" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/signup"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:textColor="@color/text"
-        android:onClick="clickSignUp" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -192,4 +183,15 @@
                 android:textColor="@color/text" />
         </RadioGroup>
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signup"
+        android:id="@+id/button"
+        android:textColor="@color/text"
+        android:onClick="clickSignUp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button4);
 
 
+
         //Button controller คือการทำให้ปุ่มสามารถคลิ๊ก
         // และเก็บเหตุการณ์ของการคลิ๊กได้ จากตัวอย่างเมื่อคลิ๊กจะย้ายการทำงานไปที่ EditActivity
         button.setOnClickListener(new View.OnClickListener() {
@@ -185,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
-
 
 
     public void clickBurn(View view) {
@@ -352,7 +352,9 @@ public class MainActivity extends AppCompatActivity {
         myManage.addFood("food", "unit", "calories");
         myManage.addExercise("exercise", "burn");
 
+
     } //testAddVale
+
 
 
 } //Main class

@@ -31,7 +31,8 @@ public class AddCaloriesActivity extends AppCompatActivity {
 
         // get & show date
         dateString = getIntent().getStringExtra("Date");
-        textView.setText("Date = " + dateString);
+        //textView.setText("Date = " + dateString);
+        textView.setText("รายการอาหาร");
 // Read All foodTABLE ==> create listview
         readAnCreateListView();
 

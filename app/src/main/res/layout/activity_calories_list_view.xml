@@ -19,12 +19,22 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/text" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/textView14"
+        android:background="@color/text1"
+        android:paddingBottom="10dp" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linbottomCal"
         android:layout_alignParentBottom="true"
-        android:id="@+id/linbottomCal">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:layout_width="0dp"
@@ -34,8 +44,7 @@
             android:layout_weight="1"
             android:textColor="@color/text"
             android:onClick="clickAddCalories"
-            android:background="@android:drawable/progress_horizontal"
-            android:backgroundTint="@color/abc_color_highlight_material" />
+            android:background="@android:drawable/btn_default_small" />
 
         <Button
             android:text="QR code"
@@ -45,7 +54,7 @@
             android:layout_weight="1"
             android:onClick="clickQRcode"
             android:textColor="@color/text"
-            android:background="@android:drawable/progress_horizontal"
+            android:background="@android:drawable/btn_default_small"
             android:backgroundTint="@color/abc_color_highlight_material" />
 
         <Button
@@ -56,17 +65,8 @@
             android:layout_weight="1"
             android:textColor="@color/text"
             android:onClick="clickBackCalories"
-            android:background="@android:drawable/progress_horizontal"
+            android:background="@android:drawable/btn_default_small"
             android:backgroundTint="@color/abc_color_highlight_material" />
     </LinearLayout>
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/textView14"
-        android:layout_above="@+id/linbottomCal"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="#e1ffffff" />
 </RelativeLayout>

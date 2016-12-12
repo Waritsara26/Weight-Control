@@ -29,13 +29,14 @@
         android:layout_marginEnd="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/text" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/livBurnAdd"
-        android:background="#f6ffffff"
+        android:background="@color/text1"
         tools:layout_marginBottom="85dp"
         android:layout_marginTop="24dp"
         android:layout_below="@+id/txtBurnAdd"

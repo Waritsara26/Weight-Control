@@ -17,7 +17,7 @@
         android:id="@+id/textView"
         android:textSize="@dimen/h1"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/text" />
+        android:textColor="@color/text1" />
 
     <Button
         android:layout_width="match_parent"
